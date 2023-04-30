@@ -1,0 +1,25 @@
+{
+    "output_data": [
+        {
+            "model_prediction": "iguana",
+            "model_prediction_probability": 0.18835395574569702,
+            "next_word": "monkeys",
+            "next_word_probability": 7.500712051466962e-09,
+            "prompt": "So after two days of these near misses he changed strategies He put his camera on a tripod and threw down some cookies to try to entice the "
+        },
+        {
+            "model_prediction": "🙂\n",
+            "model_prediction_probability": 0.05057201534509659,
+            "next_word": "Alpacas",
+            "next_word_probability": 6.386762230192744e-10,
+            "prompt": "Tell me something about alpacas. "
+        },
+        {
+            "model_prediction": "20-day,",
+            "model_prediction_probability": 0.00632989639416337,
+            "next_word": "time",
+            "next_word_probability": 0.00022963587252888829,
+            "prompt": "Once upon a "
+        }
+    ]
+}

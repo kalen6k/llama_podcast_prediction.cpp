@@ -208,6 +208,13 @@ vdot: pocs/vdot/vdot.cpp ggml.o $(OBJS)
 libllama.so: llama.o ggml.o $(OBJS)
 	$(CXX) $(CXXFLAGS) -shared -fPIC -o $@ $^ $(LDFLAGS)
 
+transcript_processing: transcript_processing.cpp ggml.o llama.o common.o $(OBJS)
+	$(CXX) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)
+	@echo
+	@echo '====  Run ./transcript_processing for execution.  ===='
+	@echo
+
+
 #
 # Tests
 #
