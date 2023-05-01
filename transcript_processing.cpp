@@ -193,13 +193,16 @@ void generate_podcast_prediction(
             max_word += token_str;
             // if the string contains a non-space/newline char, then the loop should continue
             if (token_str.find(' ') == std::string::npos && token_str.find('\n') == std::string::npos) {
-                char_flag = true;
-                max_word_prob *= max_prob_token;
+                char_flag = true; 
+            }
+            if (char_flag) {
                 // break the loop if the new token contains a space or a newline char after the first char
                 if (token_str.find(' ') != std::string::npos || token_str.find('\n') != std::string::npos) {
                     break;
                 }
+                max_word_prob *= max_prob_token;
             }
+            
         }
 
         // write to stdout "exited model prediction loop"
