@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
-MODEL=./models/1B/gpt4-x-alpaca-native-13B-ggml
-MODEL_NAME=ggml-model-q8_0.bin
+MODEL=../models/13B/gpt4-x-alpaca-native-13B-ggml/ggml-model-q8_0.bin
+MODEL_NAME=ggml-alpaca-native-13B-q8_0
 
 # exec options
 prefix=" " # Ex. Vicuna uses "Human: "
