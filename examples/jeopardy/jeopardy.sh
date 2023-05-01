@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-MODEL=../models/13B/gpt4-x-alpaca-native-13B-ggml/ggml-model-q8_0.bin
+MODEL=/models/13B/gpt4-x-alpaca-native-13B-ggml/ggml-model-q8_0.bin
 MODEL_NAME=ggml-alpaca-native-13B-q8_0
 
 # exec options
@@ -13,7 +13,7 @@ introduction="You will be playing a game of Jeopardy. Simply answer the question
 
 # file options
 question_file=./examples/jeopardy/questions.txt
-touch ./results/$MODEL_NAME.txt
+touch .examples/jeopardy/results/$MODEL_NAME.txt
 output_file=./examples/jeopardy/results/$MODEL_NAME.txt
 
 counter=1
