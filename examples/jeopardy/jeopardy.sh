@@ -13,7 +13,7 @@ introduction="You will be playing a game of Jeopardy. Simply answer the question
 
 # file options
 question_file=./examples/jeopardy/questions.txt
-touch ./examples/jeopardy/results/$MODEL_NAME.txt
+touch ./results/$MODEL_NAME.txt
 output_file=./examples/jeopardy/results/$MODEL_NAME.txt
 
 counter=1
