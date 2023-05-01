@@ -152,6 +152,9 @@ void generate_podcast_prediction(
         // print the max word and its probability to stdout
         std::cout << max_word << " " << max_word_prob << std::endl;
 
+        // flag to indicate a char (not ' ' or '\n' has been found within the max_word)
+        bool char_flag = false;
+
         
         
         // write to stdout "entering loop
@@ -188,12 +191,15 @@ void generate_podcast_prediction(
             std::cout << std::endl;
 
             max_word += token_str;
-            // break the loop if the new token contains a space or a newline char
-
-            if (token_str.find(' ') != std::string::npos || token_str.find('\n') != std::string::npos) {
-                break;
+            // if the string contains a non-space/newline char, then the loop should continue
+            if (token_str.find(' ') == std::string::npos && token_str.find('\n') == std::string::npos) {
+                char_flag = true;
+                max_word_prob *= max_prob_token;
+                // break the loop if the new token contains a space or a newline char after the first char
+                if (token_str.find(' ') != std::string::npos || token_str.find('\n') != std::string::npos) {
+                    break;
+                }
             }
-            max_word_prob *= max_prob_token;
         }
 
         // write to stdout "exited model prediction loop"
