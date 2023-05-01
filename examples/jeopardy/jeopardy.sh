@@ -1,11 +1,11 @@
 #!/bin/bash
 set -e
 
-MODEL=./models/ggml-vicuna-13b-1.1-q4_0.bin
-MODEL_NAME=Vicuna
+MODEL=./models/1B/gpt4-x-alpaca-native-13B-ggml
+MODEL_NAME=ggml-model-q8_0.bin
 
 # exec options
-prefix="Human: " # Ex. Vicuna uses "Human: "
+prefix=" " # Ex. Vicuna uses "Human: "
 opts="--temp 0 -n 80" # additional flags
 nl='
 '
