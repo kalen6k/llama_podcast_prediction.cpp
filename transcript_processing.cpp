@@ -64,7 +64,7 @@ void generate_embeddings(
     // Run inference on the provided context tokens
     int n_tokens = static_cast<int>(context_tokens.size());
     int n_past = 0;
-    int n_threads = 3;
+    int n_threads = 30;
     int result = llama_eval(ctx, context_tokens.data(), n_tokens, n_past, n_threads);
     if (result != 0) {
         std::cerr << "Error: llama_eval failed with error code " << result << std::endl;
@@ -121,7 +121,7 @@ void generate_podcast_prediction(
         std::cout << "prompt and next word tokenized " << std::endl;
 
         // Run the llama inference to obtain the logits for the next token
-        int result = llama_eval(ctx, context_tokens.data(), context_tokens.size(), 0, 3);
+        int result = llama_eval(ctx, context_tokens.data(), context_tokens.size(), 0, 30);
         if (result != 0) {
             std::cerr << "Inference failed" << std::endl;
         }
@@ -167,7 +167,7 @@ void generate_podcast_prediction(
             tokenize_prompt(ctx, max_word, max_word_tokens);
             context_tokens.insert(context_tokens.end(), max_word_tokens.begin(), max_word_tokens.end());
             // Run the llama inference to obtain the logits for the next token
-            result = llama_eval(ctx, context_tokens.data(), context_tokens.size(), 0, 3);
+            result = llama_eval(ctx, context_tokens.data(), context_tokens.size(), 0, 30);
             if (result != 0) {
                 std::cerr << "Inference failed" << std::endl;
             }
@@ -222,7 +222,7 @@ void generate_podcast_prediction(
             // use next word tokens as the context tokens for the next llama_eval call
             context_tokens.insert(context_tokens.end(), next_word_tokens.begin(), next_word_tokens.begin() + i);
             // Run the llama inference to obtain the logits for the next token
-            result = llama_eval(ctx, context_tokens.data(), context_tokens.size(), 0, 3);
+            result = llama_eval(ctx, context_tokens.data(), context_tokens.size(), 0, 30);
             if (result != 0) {
                 std::cerr << "Inference failed" << std::endl;
             }
