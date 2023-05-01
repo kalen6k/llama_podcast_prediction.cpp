@@ -254,7 +254,7 @@ void generate_podcast_prediction(
 
 int main() {
     // Define the path to the Llama model file
-    const char* model_path = "models/7B/ggml-alpaca-7b-q4.bin";
+    const char* model_path = "models/13B/gpt4-x-alpaca-native-13B-ggml/ggml-model-q8_0.bin";
     
     // Define the path to the input and output json files
     const std::string input_json_file = "podcast_testing_in/input1.json";
