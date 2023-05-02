@@ -2594,7 +2594,7 @@ int llama_tokenize(
     auto res = llama_tokenize(ctx->vocab, text, add_bos);
 
     if (n_max_tokens < (int) res.size()) {
-        fprintf(stderr, "%s: too many tokens\n", __func__);
+        // fprintf(stderr, "%s: too many tokens\n", __func__);
         return -((int) res.size());
     }
 
