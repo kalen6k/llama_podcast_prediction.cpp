@@ -1,2 +1,7 @@
 numpy==1.24
 sentencepiece==0.1.98
+openai==0.27.6
+chromadb==0.3.21
+pandas==2.0.1
+openpyxl==3.1.2
+python-dotenv==1.0.0
