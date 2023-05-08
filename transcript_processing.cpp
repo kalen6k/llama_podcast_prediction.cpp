@@ -303,15 +303,19 @@ void generate_podcast_prediction(
 }
 
 
-int main() {
+int main(int argc, char* argv[]) {
+    if (argc != 4) {
+        std::cerr << "Usage: " << argv[0] << " <input_json> <output_json> <model_path>" << std::endl;
+        return 1;
+    }
     // Define the path to the Llama model file
-    const char* model_path = "models/7B/alpaca-native-7B-ggml/ggml-model-q4_0.bin";
+    const char* model_path = argv[3];
     
     // Define the path to the input and output json files
     // ensure that the input json file has a space in the front of both the input text and the next word
     // to match the llama tokenizer behavior
-    const std::string input_json_file = "podcast_testing_in/input1.json";
-    const std::string output_json_file = "podcast_testing_out/output1.json";
+    const std::string input_json_file = argv[1];
+    const std::string output_json_file = argv[2];
 
     // Initialize the the Llama model
     struct llama_context_params params = llama_context_default_params();

@@ -1,0 +1,25 @@
+{
+    "output_data": [
+        {
+            "model_prediction": "bear",
+            "model_prediction_probability": 0.576526939868927,
+            "next_word": " monkeys",
+            "next_word_probability": 0.001377183012664318,
+            "prompt": " So after two days of these near misses he changed strategies He put his camera on a tripod and threw down some cookies to try to entice the"
+        },
+        {
+            "model_prediction": "Answer",
+            "model_prediction_probability": 0.49718183279037476,
+            "next_word": " Alpacas",
+            "next_word_probability": 0.06090262159705162,
+            "prompt": " Tell me something about alpacas."
+        },
+        {
+            "model_prediction": "time",
+            "model_prediction_probability": 0.9915794134140015,
+            "next_word": " time",
+            "next_word_probability": 0.9915794134140015,
+            "prompt": " Once upon a"
+        }
+    ]
+}

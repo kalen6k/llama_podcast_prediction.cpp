@@ -9,6 +9,7 @@
 .venv
 .vs/
 .vscode/
+.env
 
 build/
 build-em/
@@ -42,4 +43,5 @@ zig-cache/
 
 ppl-*.txt
 
+transcript_processing
 examples/jeopardy/results.txt
