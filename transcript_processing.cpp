@@ -90,7 +90,7 @@ void generate_embeddings(
     // Run inference on the provided context tokens
     int n_tokens = static_cast<int>(context_tokens.size());
     int n_past = 0;
-    int n_threads = 3;
+    int n_threads = 30;
     int result = llama_eval(ctx, context_tokens.data(), n_tokens, n_past, n_threads);
     if (result != 0) {
         std::cerr << "Error: llama_eval failed with error code " << result << std::endl;
@@ -128,7 +128,7 @@ void generate_podcast_prediction(
     output_data["output_data"] = json::array();
 
     int entry_num = 0;
-    int n_threads = 3;
+    int n_threads = 30;
 
     // Read each entry within the input data
     for (const auto& entry : input_data["input_data"]) {
