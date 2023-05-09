@@ -333,7 +333,8 @@ def main():
   db_name_prefix = "podcast_embeddings"
   chunk_size = 50
   window_size = 100
-  process_prompt_type("original", transcript
+  num_results = 1
+  process_prompt_type("original", transcript, chunk_size, db_name_prefix, num_results)
   # using the original prompt-type create input files for window sizes from 1 to 150
   #for window_size in range(1, 151):
     #process_prompt_type("original", transcript, chunk_size, window_size, db_name_prefix, num_results)
