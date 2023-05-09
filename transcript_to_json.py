@@ -7,7 +7,11 @@ import chromadb
 from chromadb.config import Settings
 from chromadb.utils import embedding_functions
 from concurrent.futures import ThreadPoolExecutor
+from dotenv import load_dotenv
 
+load_dotenv()
+
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 num_words = 5113
 openai_ef = embedding_functions.OpenAIEmbeddingFunction(
@@ -17,7 +21,7 @@ openai_ef = embedding_functions.OpenAIEmbeddingFunction(
 
 client = chromadb.Client(Settings(
       chroma_db_impl="duckdb+parquet",
-      persist_directory="/chromadb"
+      persist_directory="chromadb"
 ))
 client.persist()
 
@@ -304,7 +308,7 @@ def create_input_json(prompts, file_name):
       json.dump(input_data, f, ensure_ascii=False, indent=2)
 
 def process_prompt_type(prompt_type: str, transcript: str, chunk_size: int, window_size: int, db_name_prefix: str, num_results: int):
-  db_name = f"{db_name_prefix}_{prompt_type}"
+  db_name = f"{db_name_prefix}_{prompt_type}_{window_size}"
   generate_embeddings_db(transcript, db_name, chunk_size)
 
   print(f"{prompt_type}_{window_size} generation begins")
@@ -312,7 +316,7 @@ def process_prompt_type(prompt_type: str, transcript: str, chunk_size: int, wind
 
   # create input file
   file_name = f"input_{prompt_type}_{window_size}.json"
-  file_path = "/podcast_testing_in/"
+  file_path = "podcast_testing_in/"
   create_input_json(prompts, file_path + file_name)
   print(f"input_{prompt_type}_{window_size}.json created")
   
@@ -328,13 +332,16 @@ def main():
   # create embeddings db from transcript
   db_name_prefix = "podcast_embeddings"
   chunk_size = 50
-  num_results = 1
+  window_size = 100
+  process_prompt_type("original", transcript
   # using the original prompt-type create input files for window sizes from 1 to 150
-  for i in range(1, 151):
-    window_size = i
-    process_prompt_type("original", transcript, chunk_size, window_size, db_name_prefix, num_results)
+  #for window_size in range(1, 151):
+    #process_prompt_type("original", transcript, chunk_size, window_size, db_name_prefix, num_results)
 
   #process_prompt_type("hyde_retrieval", transcript, chunk_size, db_name_prefix, num_results)
   #prompt_types = ["original", "dialog_summary", "base_retrieval", "hyde_retrieval", "retrieval_dialog_summary", "hyde_retrieval_dialog_summary"]
   #with ThreadPoolExecutor() as executor:
     #executor.map(process_prompt_type, prompt_types)
+
+if __name__ == "__main__":
+  main()
